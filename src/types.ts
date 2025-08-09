@@ -3,7 +3,7 @@ export interface FormFieldValidation {
   minLength?: number;
   maxLength?: number;
   isEmail?: boolean;
-  customPassword?: boolean;
+  isPassword?: boolean;
 }
 
 export interface FormField {
