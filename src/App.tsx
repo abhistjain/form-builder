@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { Container, Typography, AppBar, Toolbar } from '@mui/material';
+import MyForms from './pages/MyForms';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+            upliance.ai Form Builder
+          </Typography>
+        </Toolbar>
+      </AppBar>
+      <Container sx={{ mt: 4 }}>
+        <Routes>
+          <Route path="/" element={<Navigate to="/myforms" replace />} />
+          <Route path="/myforms" element={<MyForms />} />
+          <Route path="*" element={<Typography>404 Not Found</Typography>} />
+        </Routes>
+      </Container>
+    </>
   );
 }
 
